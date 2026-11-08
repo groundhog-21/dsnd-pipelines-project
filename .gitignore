@@ -8,6 +8,9 @@ __pycache__/
 # Jupyter notebook checkpoints
 .ipynb_checkpoints/
 
+# Jupyter notebook benchmark document
+nlp-pipeline.ipynb
+
 # Local environment variables and secrets
 .env
 

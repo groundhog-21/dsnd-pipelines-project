@@ -4,6 +4,9 @@
 # Pipeline cache
 pipeline_cache/
 
+# Best model
+best_model.joblib
+
 # Python bytecode
 __pycache__/
 *.py[cod]

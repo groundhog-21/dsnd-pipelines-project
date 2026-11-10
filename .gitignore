@@ -1,6 +1,9 @@
 # Python virtual environment
 .venv/
 
+# Pipeline cache
+pipeline_cache/
+
 # Python bytecode
 __pycache__/
 *.py[cod]

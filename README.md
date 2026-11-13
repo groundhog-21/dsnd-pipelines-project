@@ -60,11 +60,11 @@ Open `starter/starter.ipynb` in VS Code and select the `.venv` kernel. Use `star
 
 ## Running the notebook
 
-**Full training:** run the setup, preprocessing, training, and search cells in order. In the best-estimator cell, enable `model_best = param_search.best_estimator_` and disable the alternative `joblib.load(...)` line. The current notebook defaults to loading the locally saved model. Training and tuning can take tens of minutes; the search uses `n_jobs=1` to avoid a parallel-processing issue encountered with spaCy.
+**Full training:** run all cells in order. Training and tuning can take over an hour; the search uses `n_jobs=1` to avoid a parallel-processing issue encountered with spaCy.
 
-**Recreate evaluation visuals:** load the two saved results CSVs and run the relevant metric and chart cells. No model fitting or model file is required. EDA charts require loading [starter/data/reviews.csv](starter/data/reviews.csv) and recreating the original train/test split.
+**Recreate evaluation visuals:** run the required imports and chart-style setup, uncomment the optional CSV-loading lines and run the relevant metric and chart cells. No model fitting or model file is required. EDA charts require loading [starter/data/reviews.csv](starter/data/reviews.csv) and recreating the original train/test split.
 
-Export commands are commented out to protect saved results. Enable them only when intentionally updating those files. Loading a local model requires the custom preprocessing function definitions to be available first.
+Export commands are commented out to protect saved results. Enable them only when intentionally updating those files. Loading a local model requires the custom preprocessing functions to be defined and the spaCy language model to be loaded first.
 
 ## Acknowledgments and licenses
 

@@ -5,6 +5,8 @@ figure.figsize: 8, 5
 figure.dpi: 100
 figure.facecolor: white
 figure.autolayout: True
+figure.titlesize: 14
+figure.titleweight: bold
 savefig.dpi: 300
 savefig.bbox: tight
 

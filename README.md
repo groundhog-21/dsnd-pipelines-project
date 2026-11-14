@@ -26,15 +26,18 @@ Both models were evaluated on the same 1,845 held-out test reviews.
 |---|---:|---:|
 | Accuracy | 0.8374 | 0.8596 |
 | Macro F1 | 0.5699 | 0.6678 |
+| Precision for recommended reviews | 0.8361 | 0.8581 |
+| Precision for not-recommended reviews | 0.8824 | 0.8846 |
 | Recall for not-recommended reviews | 13.3% | 27.1% |
 
-Tuning increased correctly identified not-recommended reviews from 45 to 92 out of 339. However, 72.9% of this class remained missed. The model's high overall accuracy therefore does not imply strong detection of dissatisfied reviewers. Reviewers in this dataset may also differ from the retailer's wider customer base.
+Tuning increased correctly identified not-recommended reviews from 45 to 92 out of 339. However, 72.9% of this class remained missed. The model's high overall accuracy therefore does not imply strong detection of not-recommended reviews. Reviewers in this dataset may also differ from the retailer's wider customer base.
 
 ## Repository contents
 
 | Path | Purpose |
 |---|---|
 | `starter/starter.ipynb` | Narrated analysis, model pipeline, and evaluation |
+| `starter/pipeline_robustness_tests.ipynb` | Checks missing-value and unseen-category handling using a 20-review test sample |
 | `starter/data/reviews.csv` | Udacity-supplied review data |
 | `starter/cv_results.csv` | Saved cross-validation results |
 | `starter/model_predictions_comparison.csv` | Test labels, baseline/tuned predictions, and original row indices |
@@ -58,13 +61,19 @@ python -m pip install -r requirements.txt
 
 Open `starter/starter.ipynb` in VS Code and select the `.venv` kernel. Use `starter/` as the notebook working directory: data, saved results, and style paths are relative to it. Run the font-registration and style-loading cell before plotting; it registers the bundled Inter fonts without a system-wide installation.
 
-## Running the notebook
+## Running the notebooks
+
+### `starter.ipynb`
 
 **Full training:** run all cells in order. Training and tuning can take over an hour; the search uses `n_jobs=1` to avoid a parallel-processing issue encountered with spaCy.
 
 **Recreate evaluation visuals:** run the required imports and chart-style setup, uncomment the optional CSV-loading lines and run the relevant metric and chart cells. No model fitting or model file is required. EDA charts require loading [starter/data/reviews.csv](starter/data/reviews.csv) and recreating the original train/test split.
 
 Export commands are commented out to protect saved results. Enable them only when intentionally updating those files. Loading a local model requires the custom preprocessing functions to be defined and the spaCy language model to be loaded first.
+
+### `pipeline_robustness_tests.ipynb`
+
+After training in `starter.ipynb`, enable and run the model-saving cell to save `model_best` as `starter/best_model.joblib`, then comment out the saving commands again. Open `starter/pipeline_robustness_tests.ipynb` with the same environment and `starter/` working directory, and run all cells. It loads the saved pipeline without retraining and tests modified copies of a reproducible 20-review sample from the original test split. These checks assess successful handling of imperfect inputs, not prediction accuracy.
 
 ## Acknowledgments and licenses
 
